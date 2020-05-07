@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from flask import Flask,request 
-from requests import get
+from flask import Flask, request 
+import requests
 
 app = Flask(__name__)
 
