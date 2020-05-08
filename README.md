@@ -2,7 +2,7 @@
 Python Scripts to test cloud instances for the open metadata service vulnerability.
 simple python proxy server (proxy-server.py) and retrieving parameters like hostname, IP address, and MAC address (get-info.py) scripts through an EC2 instance.
 
-***Note: that the prerequisites are to install python-pip and git; AND subsequentially the "requests" and "flask" python modules via PIP install.***
+***Note: That the prerequisites are to install python-pip and git; AND subsequentially the "requests" and "flask" python modules via PIP install.  Also,the examples here will be different in regards to your environment, with names IPs, just for reference purposes.***
 
 ### INSTALLATION STEPS FOR a Linux-AMI Instance within EC2:
 	[ec2-user@ip-172.31.x.x ~]$ sudo yum install git -y
