@@ -1,6 +1,5 @@
 # cloud-instance-metadata-test-tools
-Here are some very useful Python Scripts to test cloud instances for the very well known open metadata service vulnerability.
-simple python proxy server (proxy-server.py) and retrieving parameters like hostname, IP address, and MAC address (get-info.py) scripts through an EC2 instance.
+Here are some very useful Python Scripts to test cloud instances for the very well known open metadata service vulnerability within AWS and other Cloud Providers.  What we have is a very simple python proxy server (proxy-server.py) to expose the AWS meta-data service, and the (get-info.py) for retrieving parameters like hostname, IP address, and MAC address through an EC2 instance.
 
 ***Note: That the prerequisites are to install python-pip and git; AND subsequentially the "requests" and "flask" python modules via PIP install.  Also,the examples here will be different in regards to your environment, with names IPs, just for reference purposes.***
 
