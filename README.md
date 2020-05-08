@@ -127,7 +127,7 @@ You may have to install the "requests" module, but it looks like it is already i
 		}
 >>> 
 
-### And look at that, we have retieved a secret access token - but, can we do this through the SSRF that is running on our other session?
+### And look at that, we have have successfully retrieved a secret access token - but, can we do this through the SSRF that is running on our other session?
 
 ### Just to check that the proxy-server.py is working and verify that proxy server can can actually redirect to a URL, lets try Google:
 	http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://www.google.com
