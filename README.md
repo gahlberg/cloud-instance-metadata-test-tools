@@ -114,30 +114,6 @@ MAC-Address: 12:78:85:2e:e2:9b
 		reservation-id
 		security-groups
 		services/
-	>>> print requests.get("http://169.254.169.254/latest/meta-data/").text               
-		ami-id
-		ami-launch-index
-		ami-manifest-path
-		block-device-mapping/
-		events/
-		hostname
-		identity-credentials/
-		instance-action
-		instance-id
-		instance-type
-		local-hostname
-		local-ipv4
-		mac
-		metrics/
-		network/
-		placement/
-		profile
-		public-hostname
-		public-ipv4
-		public-keys/
-		reservation-id
-		security-groups
-		services/
 	>>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials").text
 		ec2/
 	>>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials/ec2").text
