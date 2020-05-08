@@ -16,7 +16,7 @@ You may have to install requests, but looks like it is already installed on curr
 
 Requirement already satisfied: requests in /usr/lib/python2.7/dist-packages
 
-## Clone the repository from Github for the SSRF proxy server and get-info on the 
+## Clone the repository from Github for the SSRF proxy server and get-info python scripts
 
 [ec2-user@ip-172.31.x.x ~]$ git clone https://github.com/gahlberg/cloud-instance-metadata-test-tools.git
 
