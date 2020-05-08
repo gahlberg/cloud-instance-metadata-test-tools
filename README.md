@@ -14,7 +14,7 @@ simple python proxy server (proxy-server.py) and retrieving parameters like host
 
 [ec2-user@ip-172.31.x.x ~]$ sudo pip install flask
 
-## You may have to install requests, but looks like it is already installed on current Linux-AMI instances as of 5/1/2020
+You may have to install requests, but looks like it is already installed on current Linux-AMI instances as of 5/1/2020
 [ec2-user@ip-172.31.x.x ~]$ sudo pip install requests
 Requirement already satisfied: requests in /usr/lib/python2.7/dist-packages
 
