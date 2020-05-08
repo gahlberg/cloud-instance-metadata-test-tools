@@ -30,21 +30,21 @@ You may have to install requests, but looks like it is already installed on curr
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ chmod 777 get-info.py 
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ chmod 777 proxy-server.py 
 ### Run Get-Info
-[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./get-info.py 
-Hostname: ip-172.31.x.x.ec2.internal
-Private-ipv4-Address: 172.31.x.x
-MAC-Address: 12:78:85:2e:e2:9b
+	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./get-info.py 
+	Hostname: ip-172.31.x.x.ec2.internal
+	Private-ipv4-Address: 172.31.x.x
+	MAC-Address: 12:78:85:2e:e2:9b
 ### Run SSRF proxy server:
-[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./proxy-server.py 
- * Serving Flask app "proxy-server" (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: on
- * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 296-577-211
+	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./proxy-server.py 
+	 * Serving Flask app "proxy-server" (lazy loading)
+	 * Environment: production
+	   WARNING: This is a development server. Do not use it in a production deployment.
+	   Use a production WSGI server instead.
+	 * Debug mode: on
+	 * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+	 * Restarting with stat
+	 * Debugger is active!
+	 * Debugger PIN: 296-577-211
  
 ### Ok now we have the SSRF running on the AWS Instance
 
