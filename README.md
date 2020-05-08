@@ -143,6 +143,8 @@ You may have to install the "requests" module, but it looks like it is already i
 
 #### And look at that, the same data is retrieved here!  
 
+![Screenshot](docs/screenshots/ssrf-md.png)
+
 So as a remote user with a Server Side Request Forgery I can pass in an internal URL which is the AWS meta-data service, and with that I can grab access tokens out of it.  And if this paricular access token had access to a S3 bucket with millions of accounts containing private information, I can now retrieve that information.  This is roughly how Erratic (from the Capital One Data Breach) was able to post all the private information of customer accounts up onto GitHub from the S3 buckets of the AWS Instances back in the end of March in 2019; the question is how do you stop this? 
 
 #### From AWS, there is not a concrete answer, just a warning that you may need to put appropriate controls in place, and that the liability lies on the customer under the AWS Shared Responsibility Model:
