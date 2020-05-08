@@ -170,6 +170,6 @@ http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://169.254.169.254/
 	Same goes here!  So as a remote user with a SSRF I can pass in an internal url which is the AWS meta-data service and I can grab access tokens out of it.  If this access token had access to the S3 bucket with millions of accounts containing private information, I know have that information.  This is how Erratic was able to post all this information up on GitHub from the info that was taken from the S3 bucket from AWS Instances from this open vulnerability at the end of march in 2019, and roughly how she was able to do this, the question is how do you stop this? 
 
 ## From AWS, there is not a concrete answer, just a warning that you may need to put appropriate controls in place:
-![screenshot](docs/screenshots/AWS Instance meta-data warning.png)
+![screenshot](docs/screenshots/AWS Instance meta-data warning.png "AWS")
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
