@@ -160,7 +160,7 @@ ec2-instance
 ### And look at that, a secret access token - can we do this through the SSRF?
 
 ### Next just to verify the proxy server can direct to a URL:
-#### http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://www.google.com
+#### "http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://www.google.com"
 
 ### OK the proxy service is verified as working...
 
