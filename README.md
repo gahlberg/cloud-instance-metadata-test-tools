@@ -140,7 +140,7 @@ You may have to install requests, but looks like it is already installed on curr
 
 #### And the same goes here!  
 
-So as a remote user with a Server Side Request Forgery I can pass in an internal URL which is the AWS meta-data service and with that I can grab access tokens out of it.  If this access token had access to the S3 bucket with millions of accounts containing private 	information, I now know that I have that information.  This is roughly how Erratic (from the Capitol One Breach) was able to post all this information up onto GitHub from the information that was taken from the S3 bucket from AWS Instances for all the User Accounts within Capitol One's AWS Instances back in the end of march in 2019, the question is how do you stop this? 
+So as a remote user with a Server Side Request Forgery I can pass in an internal URL which is the AWS meta-data service, and with that I can grab access tokens out of it.  If this access token had access to the S3 bucket with millions of accounts containing private 	information, I now know that I have that information.  This is roughly how Erratic (from the Capitol One Breach) was able to post all this information up onto GitHub from the information that was taken from the S3 bucket from AWS Instances for all the User Accounts within Capitol One's AWS Instances back in the end of march in 2019, the question is how do you stop this? 
 
 #### From AWS, there is not a concrete answer, just a warning that you may need to put appropriate controls in place:
 
