@@ -171,5 +171,5 @@ http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://169.254.169.254/
 
 ## From AWS, there is not a concrete answer, just a warning that you may need to put appropriate controls in place:
 ![screenshot](docs/screenshots/AWS Instance meta-data warning.png "AWS")
-
+docs/screenshots/AWS Instance meta-data warning.png
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
