@@ -26,14 +26,16 @@ You may have to install the "requests" module, but it looks like it is already i
 	cloud-instance-metadata-test-tools
 	[ec2-user@ip-172.31.x.x ~]$ cd cloud-instance-metadata-test-tools/
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ 
+	
+### For simplicity and speed we will just open up the python scripts to be able to execute
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ chmod 777 get-info.py 
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ chmod 777 proxy-server.py 
-### Run Get-Info
+### Next we just the run Get-Info script to get information that should be a valid request for information on that EC2 instance:
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./get-info.py 
 	Hostname: ip-172.31.x.x.ec2.internal
 	Private-ipv4-Address: 172.31.x.x
 	MAC-Address: 12:78:85:2e:e2:9b
-### Run SSRF proxy server:
+### And next we will run the proxy server script for our SSRF simulation:
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./proxy-server.py 
 	 * Serving Flask app "proxy-server" (lazy loading)
 	 * Environment: production
@@ -45,9 +47,9 @@ You may have to install the "requests" module, but it looks like it is already i
 	 * Debugger is active!
 	 * Debugger PIN: 296-577-211
  
-### Ok now we have the SSRF running on the AWS Instance
+### Ok, so now we have the SSRF running on the AWS Instance...
 
-#### Now let's start navigating the vulnerability with our python interpreter on that AWS Instance:
+#### But first in another SSH session to our Linux-AMI instance, let's start navigating the vulnerability with our python interpreter on that particular Instance (note that commands listed below after: >>> are how you step through the Meta-Data Service:
 
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ python
 	Python 2.7.16 (default, Feb 10 2020, 18:54:57) 
