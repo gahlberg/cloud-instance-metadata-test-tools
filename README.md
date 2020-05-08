@@ -13,7 +13,7 @@ You may have to install the "requests" module, but it looks like it is already i
 	[ec2-user@ip-172.31.x.x ~]$ sudo pip install requests
 	Requirement already satisfied: requests in /usr/lib/python2.7/dist-packages
 
-### Next is to clone the repository from Github for the SSRF proxy server and get-info python scripts
+### Next is to clone the repository from Github for the proxy server and get-info python scripts
 
 	[ec2-user@ip-172.31.x.x ~]$ git clone https://github.com/gahlberg/cloud-instance-metadata-test-tools.git
 	Cloning into 'cloud-instance-metadata-test-tools'...
@@ -30,12 +30,12 @@ You may have to install the "requests" module, but it looks like it is already i
 ### For simplicity and speed we will just open up the python scripts to be able to execute
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ chmod 777 get-info.py 
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ chmod 777 proxy-server.py 
-### Next we just the run Get-Info script to get information that should be a valid request for information on that EC2 instance:
+### To start, run the Get-Info script to get details on the Linux-AMI instance which should be a valid request for retrieving information on that EC2 instance:
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./get-info.py 
 	Hostname: ip-172.31.x.x.ec2.internal
 	Private-ipv4-Address: 172.31.x.x
 	MAC-Address: 12:78:85:2e:e2:9b
-### And next we will run the proxy server script for our SSRF simulation:
+### And next we will run the proxy server script to simulate our Server Side Request Forgery (SSRF):
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ ./proxy-server.py 
 	 * Serving Flask app "proxy-server" (lazy loading)
 	 * Environment: production
@@ -49,7 +49,7 @@ You may have to install the "requests" module, but it looks like it is already i
  
 ### Ok, so now we have the SSRF running on the AWS Instance...
 
-#### But first in another SSH session to our Linux-AMI instance, let's start navigating the vulnerability with our python interpreter on that particular Instance (note that commands listed below after: >>> are how you step through the Meta-Data Service:
+#### But first in another SSH session to our Linux-AMI instance, let's start navigating the vulnerability with our python interpreter on that particular Instance.  Note that the commands listed below are how you can navigate through the the hierachy of the Meta-Data Service, obviously we need to import the "requests" python module:
 
 	[ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ python
 	Python 2.7.16 (default, Feb 10 2020, 18:54:57) 
