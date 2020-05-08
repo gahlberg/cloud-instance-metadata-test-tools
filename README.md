@@ -133,7 +133,7 @@ You may have to install the "requests" module, but it looks like it is already i
 	http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://www.google.com
 	
 #### This should return a page like the following...
-![Screenshot](docs/screenshots/AWS-Instance-meta-data-warning.png)
+![Screenshot](docs/screenshots/google.png)
 
 ### OK, now we have verified that the proxy service is working...
 
