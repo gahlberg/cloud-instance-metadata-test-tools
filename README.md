@@ -1,7 +1,7 @@
 # cloud-instance-metadata-test-tools
 Here are some very useful Python Scripts to test cloud instances for the very well known open meta-data service vulnerability within AWS and other Cloud Providers.  So what we have is a very simple python proxy server (proxy-server.py) to expose the AWS meta-data service, and the (get-info.py) for retrieving parameters like hostname, IP address, and MAC address through an EC2 instance.
 
-***Note: That the prerequisites on a Linux-AMI Instance are to install python-pip and git; AND subsequentially the "requests" and "flask" python modules via PIP install.  Also,the examples here will be different in regards to your EC2 environment, with names IPs, etc., what is listed here is just for reference.***
+***Note: The prerequisites for a Linux-AMI Instance in EC2 are to install python-pip and git; AND subsequentially the "requests" and "flask" python modules via PIP install.  Also,the examples here will be different in regards to your EC2 environment, with names IPs, etc., what is listed here is just for reference. You will also have to edit your Inbound Rules in the Security Group for this instance by adding an Inbound Rule for port 8080.***
 
 ### INSTALLATION STEPS FOR a Linux-AMI Instance within EC2:
 	[ec2-user@ip-172.31.x.x ~]$ sudo yum install git -y
