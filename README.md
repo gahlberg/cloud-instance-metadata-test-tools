@@ -4,7 +4,7 @@ simple python proxy server (proxy-server.py) and retrieving parameters like host
 
 ***Note: that the prerequisites are to install python-pip, git, and additionally the requests and flask python modules via PIP install.***
 
-  INSTALLATION REQUIREMENTS FOR a Linux-AMI Instance within EC2
+  INSTALLATION STEPS FOR a Linux-AMI Instance within EC2
 
 ## For example, for a Linux-AMI instance in EC2:
 
