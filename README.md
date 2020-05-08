@@ -25,13 +25,21 @@ Requirement already satisfied: requests in /usr/lib/python2.7/dist-packages
 [ec2-user@ip-172.31.x.x ~]$ git clone https://github.com/gahlberg/cloud-instance-metadata-test-tools.git
 
 Cloning into 'cloud-instance-metadata-test-tools'...
+
 remote: Enumerating objects: 20, done.
+
 remote: Counting objects: 100% (20/20), done.
+
 remote: Compressing objects: 100% (19/19), done.
+
 remote: Total 20 (delta 7), reused 0 (delta 0), pack-reused 0
+
 Unpacking objects: 100% (20/20), done.
+
 [ec2-user@ip-172.31.x.x ~]$ ls 
+
 cloud-instance-metadata-test-tools
+
 [ec2-user@ip-172.31.x.x ~]$ cd cloud-instance-metadata-test-tools/
 [ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ 
 [ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ chmod 777 get-info.py 
