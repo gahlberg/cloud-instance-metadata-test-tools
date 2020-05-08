@@ -5,11 +5,9 @@ simple python proxy server (proxy-server.py) and retrieving parameters like host
 ***Note: that the prerequisites are to install python-pip and git; AND subsequentially the "requests" and "flask" python modules via PIP install.***
 
 ### INSTALLATION STEPS FOR a Linux-AMI Instance within EC2:
-[ec2-user@ip-172.31.x.x ~]$ sudo yum install git -y
-
-[ec2-user@ip-172.31.x.x ~]$ sudo yum install python-pip -y
-
-[ec2-user@ip-172.31.x.x ~]$ sudo pip install flask
+	[ec2-user@ip-172.31.x.x ~]$ sudo yum install git -y
+	[ec2-user@ip-172.31.x.x ~]$ sudo yum install python-pip -y
+	[ec2-user@ip-172.31.x.x ~]$ sudo pip install flask
 
 You may have to install requests, but looks like it is already installed on current Linux-AMI instances as of 5/1/2020
 
