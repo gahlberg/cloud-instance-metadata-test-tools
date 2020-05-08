@@ -54,7 +54,8 @@ MAC-Address: 12:78:85:2e:e2:9b
  * Debugger PIN: 296-577-211
  
 ### Ok now we have the SSRF running on the AWS Instance
-	Now let's start navigating the vulnerability with our python interpreter on that AWS Instance:
+
+#### Now let's start navigating the vulnerability with our python interpreter on that AWS Instance:
 
 [ec2-user@ip-172.31.x.x cloud-instance-metadata-test-tools]$ python
 Python 2.7.16 (default, Feb 10 2020, 18:54:57) 
