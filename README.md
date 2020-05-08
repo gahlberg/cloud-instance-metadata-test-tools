@@ -127,16 +127,16 @@ You may have to install the "requests" module, but it looks like it is already i
 		}
 >>> 
 
-### And look at that, we have have successfully retrieved a secret access token - but, can we do this through the SSRF that is running on our other session?
+#### And look at that, we have have successfully retrieved a secret access token - but, can we do this through the SSRF that is running on our other session?
 
-### Just to check that the proxy-server.py is working and verify that proxy server can can actually redirect to a URL, lets try Google:
+#### Just to check that the proxy-server.py is working and verify that proxy server can can actually redirect to a URL, lets try Google:
 	http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://www.google.com
 	
 #### This should return a page like the following...
 
 ![Screenshot](docs/screenshots/google.png)
 
-### OK, now we have verified that the proxy service is working...
+#### OK, now we have verified that the proxy service is working...
 
 #### So now, in a browser let's take what we were able to find within the AWS Instance meta-data from the python interpreter and put into a browser (as mentioned before this will be different according to your environment, but you get the idea...):
 	http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
