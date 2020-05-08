@@ -130,6 +130,8 @@ You may have to install requests, but looks like it is already installed on curr
 
 ### Next just to verify the proxy server can direct to a URL:
 	http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://www.google.com
+	
+##### This should return a page like the following...
 
 ### OK the proxy service is verified as working...
 
