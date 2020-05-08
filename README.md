@@ -127,19 +127,19 @@ You may have to install the "requests" module, but it looks like it is already i
 		}
 >>> 
 
-### And look at that, a secret access token - can we do this through the SSRF?
+### And look at that, we have retieved a secret access token - but, can we do this through the SSRF that is running on our other session?
 
-### Next just to verify the proxy server can direct to a URL:
+### Just to check that the proxy-server.py is working and verify that proxy server can can actually redirect to a URL, lets try Google:
 	http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://www.google.com
 	
 ##### This should return a page like the following...
 
-### OK the proxy service is verified as working...
+### OK, now we have verified that the proxy service is working...
 
-### In a browser let's take what we were able to find with AWS Instance meta-data from the python interpreter and put into a browser:
+### So now, in a browser let's take what we were able to find within the AWS Instance meta-data from the python interpreter and put into a browser (as mentioned before this will be different according to your environment, but you get the idea...:
 	http://ec2-54-86-5-206.compute-1.amazonaws.com:8080/?url=http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
 
-#### And the same goes here!  
+#### And look at that, the same data is retrieved here!  
 
 So as a remote user with a Server Side Request Forgery I can pass in an internal URL which is the AWS meta-data service, and with that I can grab access tokens out of it.  And if this paricular access token had access to the S3 bucket with millions of accounts containing private information, I now know that I have that information.  This is roughly how Erratic (from the Capitol One Breach) was able to post all this information up onto GitHub from the information that was taken from the S3 bucket from AWS Instances for all the User Accounts within Capitol One's AWS Instances back in the end of march in 2019; the question is how do you stop this? 
 
